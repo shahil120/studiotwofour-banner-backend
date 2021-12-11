@@ -18,7 +18,7 @@ class BannerController extends Controller
 
     public function get()
     {
-        return ["url" => "banners"];
+        return ["url" => "banners url"];
     }
 
     public function post(Request $request)
