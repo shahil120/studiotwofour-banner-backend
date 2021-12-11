@@ -14,7 +14,8 @@
 */
 
 $router->get('/', function () use ($router) {
-    $a = "";
-    $b = "b";
     return $router->app->version();
 });
+
+$router->get('/banners', 'BannerController@get');
+$router->post('/banners', 'BannerController@post');
