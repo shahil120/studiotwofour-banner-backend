@@ -13,9 +13,16 @@
 |
 */
 
+
+
+
 $router->get('/', function () use ($router) {
-    return $router->app->version();
+
+
 });
 
-$router->get('/banners', 'BannerController@get');
-$router->post('/banners', 'BannerController@post');
+$router->get('banners', 'Banner@test');
+$router->post('/banner', 'Banner@store');
+$router->post('/s', 'Banner@st');
+
+?>
