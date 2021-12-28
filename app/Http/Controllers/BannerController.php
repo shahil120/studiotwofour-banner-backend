@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Banner;
 
 class BannerController extends Controller
 {
@@ -18,13 +19,23 @@ class BannerController extends Controller
 
     public function get()
     {
-        return ["url" => "banners url"];
+        $result = Banner::all();
+        return $result;
     }
 
     public function post(Request $request)
     {
-        $name = $request->file('file')->getClientOriginalName();
+        $name = $request->file('banner')->getClientOriginalName();
         $name = uniqid() . '_' . $name;
-        $request->file('file')->move('uploads', $name);
+        $request->file('banner')->move('uploads', $name);
+
+        $banner = new Banner();
+        $banner->name = $name;
+        $banner->save();
+
+        return [
+            'message' => 'success'
+        ];
+
     }
 }

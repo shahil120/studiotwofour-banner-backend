@@ -21,8 +21,8 @@ $router->get('/', function () use ($router) {
 
 });
 
-$router->get('banners', 'Banner@test');
-$router->post('/banner', 'Banner@store');
+$router->get('banners', 'BannerController@get');
+$router->post('/banners', 'BannerController@post');
 $router->post('/s', 'Banner@st');
 
 ?>
